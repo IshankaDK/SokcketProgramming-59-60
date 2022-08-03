@@ -15,7 +15,7 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <TextArea fx:id="textArea" layoutX="22.0" layoutY="68.0" prefHeight="263.0" prefWidth="554.0" />
+      <TextArea fx:id="textArea" editable="false" layoutX="22.0" layoutY="68.0" prefHeight="263.0" prefWidth="554.0" />
       <TextField fx:id="textMessage" layoutX="22.0" layoutY="358.0" prefHeight="26.0" prefWidth="445.0" />
       <Button layoutX="518.0" layoutY="358.0" mnemonicParsing="false" onAction="#sendOnAction" text="Send" />
    </children>

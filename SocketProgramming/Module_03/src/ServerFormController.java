@@ -27,16 +27,17 @@ public class ServerFormController {
         new Thread(() -> {
             try {
                 serverSocket = new ServerSocket(PORT);
-                System.out.println("Server Started..");
+                textArea.appendText("Server Started..");
                 accept = serverSocket.accept();
-                System.out.println("Client Connected.");
+                textArea.appendText("\nClient Connected..");
 
-                dataOutputStream = new DataOutputStream(accept.getOutputStream());
                 dataInputStream = new DataInputStream(accept.getInputStream());
+                dataOutputStream = new DataOutputStream(accept.getOutputStream());
 
-
-                message = dataInputStream.readUTF();
-                System.out.println(message);
+                while (!message.equals("exit")){
+                    message = dataInputStream.readUTF();
+                    textArea.appendText("\nClient : " + message);
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();

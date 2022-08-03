@@ -29,13 +29,13 @@ public class ClientFormController {
             try {
                 socket = new Socket("localhost",PORT);
 
-                dataOutputStream = new DataOutputStream(socket.getOutputStream());
                 dataInputStream = new DataInputStream(socket.getInputStream());
+                dataOutputStream = new DataOutputStream(socket.getOutputStream());
 
-
-                message = dataInputStream.readUTF();
-                System.out.println(message);
-
+                while (!message.equals("exit")){
+                    message = dataInputStream.readUTF();
+                    textArea.appendText("\n Server : " + message);
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();
